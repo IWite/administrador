@@ -1,0 +1,11 @@
+<!-- Generated template for the FileDropComponent component -->
+<label class="file-container" ondragover="return false;" (dragenter)="handleDragEnter()" (dragleave)="handleDragLeave()"
+    [style.outlineColor]="drawin ? activeColor : baseColor" (drop)="handleDrop($event)">
+  	<input type="file" name="file" accept="image/*" (change)="handleInputChange($event)">
+  	<ion-row style="height: 100%">
+		<ion-col col-12 align-self-center>
+			<img [src]="imageSrc" alt="">
+			<ion-icon *ngIf="imageSrc == ''" [style.color]="drawin ? activeColor : baseColor" name="md-cloud-upload"></ion-icon>
+		</ion-col>
+	</ion-row>
+</label>

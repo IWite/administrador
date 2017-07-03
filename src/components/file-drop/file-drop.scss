@@ -1,0 +1,36 @@
+file-drop {
+    .file-container {
+        width: 12vw;
+        height: 12vw;
+        outline: 2px dashed #71767c;
+        display: inline-block;
+        padding: 10px;
+        position: relative;
+        -webkit-transition: all 100ms ease-in;
+        -moz-transition: all 100ms ease-in;
+        -ms-transition: all 100ms ease-in;
+        -o-transition: all 100ms ease-in;
+        transition: all 100ms ease-in;
+    }
+    input {
+        display: none
+    }
+    ion-icon {
+        font-size: 5em;
+        color: #71767c;
+        -webkit-transition: all 100ms ease-in;
+        -moz-transition: all 100ms ease-in;
+        -ms-transition: all 100ms ease-in;
+        -o-transition: all 100ms ease-in;
+        transition: all 100ms ease-in;
+    }
+    ion-row {
+        pointer-events: none;
+    }
+    @media (max-width: 425px) {
+        .file-container {
+            width: 70vw;
+            height: 70vw;
+        }
+    }
+}

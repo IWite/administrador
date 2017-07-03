@@ -1,0 +1,104 @@
+<!--
+  Generated template for the NewProductPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+    <ion-navbar>
+        <ion-title>Crear producto</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-grid>
+        <h1>Ficha técnica</h1>
+        <ion-row>
+            <!--
+            *****************************************************************
+            Imagen del producto
+            *****************************************************************
+            -->
+            <ion-col col-12 col-sm-4 text-center align-self-center>
+                <file-drop (imgUpdate)="img = $event"></file-drop>
+            </ion-col>
+            <!--
+            *****************************************************************
+            Datos del producto
+            *****************************************************************
+            -->
+            <ion-col col-12 col-sm-8>
+                <ion-row>
+                    <ion-col col-12 col-sm-6>
+                        <ion-item>
+                            <ion-label stacked>Nombre</ion-label>
+                            <ion-input type="text" [clearInput]="true" [(ngModel)]="nombre"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                    <ion-col col-12 col-sm-6>
+                        <ion-item>
+                            <ion-label stacked>Código</ion-label>
+                            <ion-input type="text" [clearInput]="true" [(ngModel)]="codigo"></ion-input>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-12>
+                        <ion-item>
+                            <ion-label stacked>Descripción</ion-label>
+                            <ion-textarea name="description" [clearInput]="true" [(ngModel)]="description"></ion-textarea>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+
+        <h1>Sub productos</h1>
+
+        <ion-row>
+            <ion-col col-12 col-sm-3 *ngFor="let item of listaSubProduc; let i = index">
+                <ion-card>
+                    <ion-card-header>
+                        {{item.nombre}}
+                        <ion-icon name="md-close-circle" class="miicon" (click)="borrar(i)"></ion-icon>
+                    </ion-card-header>
+                    <div class="cont-img">
+                        <img *ngIf="item.img" [src]="item.img" alt="" #miImg (load)="loadimg(miImg)">
+                        <ion-icon *ngIf="!item.img" style="font-size: 5em"   name="ios-image-outline"></ion-icon>
+                    </div>
+                </ion-card>
+            </ion-col>
+        </ion-row>
+
+        <ion-row align-items-end>
+            <ion-col col-6 col-sm-2>
+                <ng2-completer [(ngModel)]="identificador" [datasource]="dataService" [minSearchLength]="0" (selected)='selesc($event)'></ng2-completer>
+            </ion-col>
+            <ion-col col-6 col-sm-2>
+                <button ion-button (click)="addSubp()">Agregar</button>
+            </ion-col>
+        </ion-row>
+
+
+        <!--
+        *****************************************************************
+        Botones
+        *****************************************************************
+        -->
+        <ion-row>
+            <ion-col col-6>
+                <button ion-button block color="secondary" (click)="save()">Crear</button>
+            </ion-col>
+            <ion-col col-6>
+                <button ion-button block color="danger" navPop>Cancelar</button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+
+
+
+
+</ion-content>

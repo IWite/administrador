@@ -1,0 +1,51 @@
+<ion-header>
+
+    <ion-navbar>
+        <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+        <ion-title>Productos</ion-title>
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-row>
+        <ion-col col-12 col-sm-4 *ngFor="let item of listaProductos">
+            <ion-card>
+                <ion-card-header>
+                    <span class=tit>{{item.nombre}}</span>
+                    <span>{{item.codigo}}</span>
+                </ion-card-header>
+                <div class="cont-img">
+                    <img *ngIf="item.img" [src]="item.img" alt="" #miImg (load)="loadimg(miImg)">
+                    <ion-icon *ngIf="!item.img" name="ios-image-outline" style="font-size: 8em"></ion-icon>
+                </div>
+                <ion-card-content>
+                    <ion-row>
+                        <ion-col>
+                            <div class="cont-desc">
+                                <span>{{item.descripcion}}</span>
+                            </div>
+
+                        </ion-col>
+                    </ion-row>
+                    <ion-row text-right>
+                        <ion-col col-12>
+                            <button ion-button color="danger" (click)="borrar(item.key)">Borrar</button>
+                        </ion-col>
+                    </ion-row>
+                </ion-card-content>
+            </ion-card>
+        </ion-col>
+    </ion-row>
+
+
+
+</ion-content>
+
+<ion-footer padding no-border>
+    <button ion-button block class="btn-add" style="margin: auto" [navPush]="pageCreate">Crear producto</button>
+</ion-footer>

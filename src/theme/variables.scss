@@ -11,6 +11,8 @@ $font-path: "../assets/fonts";
 // http://ionicframework.com/docs/theming/rtl-support/
 $app-direction: ltr;
 
+$split-pane-side-max-width: 15%;
+
 
 @import "ionic.globals";
 
@@ -86,3 +88,6 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+
+@import "../components/file-drop/file-drop.scss";
